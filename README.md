@@ -7,7 +7,7 @@
 5. Все обращения и относящиеся к ним сообщения сохраняются в базе данных.
 
 ## Технологический стек
-Python 3.11, aiogramm 3.x, SQLite, SQLAlchemy
+Python 3.11, aiogram 3.x, SQLite, SQLAlchemy
 
 Более полный список всех необходимых библиотек находится в файле requirements.txt
 
