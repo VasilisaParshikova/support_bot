@@ -34,7 +34,7 @@ ticket_router = Router()
 dp.include_router(ticket_router)
 
 
-async def write_users_file(user_id: int):
+async def write_users_file(user_id: int) -> None:
     async with aiofiles.open(USERS_FILE, "a") as file:
         await file.write(str(user_id) + "\n")
 
@@ -66,7 +66,7 @@ async def command_start_handler(message: Message, state: FSMContext) -> None:
 @dp.callback_query(MyCallback.filter(F.foo == "support"))
 async def process_callback_button1(
     callback_query: types.CallbackQuery, state: FSMContext
-):
+) -> None:
     await bot.answer_callback_query(callback_query.id)
     current_state = await state.get_state()
     if not current_state or current_state == Support.started:
@@ -124,7 +124,7 @@ async def get_support_request(message: Message) -> None:
 
 
 @dp.message((F.chat.id == GROUP_CHAT_ID) & F.reply_to_message)
-async def collect_answers(message: Message):
+async def collect_answers(message: Message) -> None:
     ticket_id = int(message.reply_to_message.text.split(" ")[3].split(":")[0])
     ticket = await session.execute(select(Ticket).where(Ticket.id == ticket_id))
     ticket = ticket.scalars().first()
