@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = os.getenv('DATABASE_URL')
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 engine = create_async_engine(DATABASE_URL, echo=True)
 
@@ -20,9 +20,9 @@ Base = declarative_base()
 
 
 class Ticket(Base):
-    __tablename__ = 'tickets'
+    __tablename__ = "tickets"
     id = Column(Integer, primary_key=True)
     tg_user_id = Column(Integer, nullable=False)
     first_message = Column(String, nullable=False)
-    following_message = Column(String, default='')
+    following_message = Column(String, default="")
     activ = Column(Boolean, default=True)
