@@ -17,4 +17,4 @@ Python 3.11, aiogram 3.x, SQLite, SQLAlchemy
 
 1. Склонировать репозиторий 
 2. Установить переменные окружения, согласно .env.example
-2. Запустить docker compouse командой docker-compose up -d
+2. Запустить docker compose командой docker-compose up -d
